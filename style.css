@@ -32,27 +32,29 @@
   letter-spacing: -2px;
 }
 
-.clearContainer {
+/* .clearContainer {
   margin-top: 100px;
   margin-bottom: 30px;
   height: 30px;
-}
+} */
 
 #clear {
-  width: 81.25px;
-  float: right;
-  margin-right: 15px;
   background-color: orange;
+}
+
+#span3 {
+  grid-column-start: span 3;
 }
 
 .buttonsGrid {
   display: grid;
-  margin-top: 10px;
+  margin-top: 100px;
   padding: 15px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
   grid-gap: 15px;
   background-color: #cccce8;
+  border-radius: 15px 15px 15px 15px;
 }
 
 .button {
@@ -64,4 +66,22 @@
   color: #f3ece7;
   font-size: 30px;
 }
+
+.button:active {
+  background-color: #1a1a51
+}
+
+#clear:active {
+  background-color: #805300
+}
+
+/* not sure why it doesn't work, maybe scss?*/
+/* .button:active {
+  background-color: shade(#3333a2, 30%)
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage)
+} */
+
 

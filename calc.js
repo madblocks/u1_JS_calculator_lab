@@ -20,6 +20,7 @@ const buttonPress = (event) => {
   } else if (button === 'clear') {
     clear()
   } else if (isValid(button)) {
+    // if not a calc or clear button clear display for new number input
     if (operation.displayIsResult) {
       operation.displayText = ''
     }
@@ -51,11 +52,14 @@ const assignOperator = (button) => {
       return
     } else {
       if (button === 'equal') {
+        // if (operation.displayIsResult) {
+        //   calculate(operation.result, operation.value1)
+        // }
         updateValue2(operation.displayText)
-        calculate()
+        calculate(operation.value1, operation.value2)
       } else {
         updateValue2(operation.displayText)
-        calculate()
+        calculate(operation.value1, operation.value2)
         // update the operator after the calculation
         operation.operator = button
       }
@@ -64,19 +68,19 @@ const assignOperator = (button) => {
   }
 }
 
-const calculate = () => {
+const calculate = (value1, value2) => {
   switch(operation.operator){
     case 'add':
-      result = operation.value1 + operation.value2
+      result = value1 + value2
       break
     case 'sub':
-      result = operation.value1 - operation.value2
+      result = value1 - value2
       break
     case 'mult':
-      result = operation.value1 * operation.value2
+      result = value1 * value2
       break
     case 'div':
-      result = operation.value1 / operation.value2
+      result = value1 / value2
       break
   }
   display.innerText = result.toString()
